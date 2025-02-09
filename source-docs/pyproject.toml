@@ -1,0 +1,19 @@
+[project]
+name = "source-docs"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Fabio Mira",email = "fgmira@gmail.com"},
+    {name = "Kaue Guirado",email = "kaue@atualizar.com"},
+    {name = "Samuel",email = "samuel@atualizar.com"},
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mkdocs-material (>=9.6.2,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

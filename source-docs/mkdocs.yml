@@ -1,0 +1,53 @@
+site_name: PotyStack
+repo_url: https://github.com/code-umbu/PotyStack
+repo_name: code-umbu/PotyStack
+
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/PotyStak2.svg
+  favicon: assets/PotyStak2.ico
+  palette:
+    primary: amber
+    accent: deep_orange
+    scheme: slate
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate #
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - admonition
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
