@@ -396,6 +396,7 @@ Vamos fazer um simples teste para ver se a conexão com o GitHub está funcionan
 ```bash title="Clonando um repositório de teste"
 git clone https://github.com/code-umbu/PotyStack.git # (1)!
 ```
+
 1. :man_raising_hand: Entendendo o comando:
     - `git`: é o comando do `Git`;
     - `clone`: é o comando que permite que você clone um repositório;
