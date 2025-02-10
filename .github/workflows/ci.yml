@@ -32,9 +32,6 @@ jobs:
       - name: Intall Dependencies
         run: poetry install
         working-directory: source-docs
-      # - name: Activate Virtual Environment
-      #   run: poetry shell
-      #   working-directory: source-docs
       - name: Deploy Docs
         run: poetry run mkdocs gh-deploy --force
         working-directory: source-docs

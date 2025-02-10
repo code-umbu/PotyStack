@@ -335,5 +335,81 @@ Feito isso, para que a configuração tenha efeito, você precisa reiniciar o te
 source ~/.bashrc
 ```
 
+Um bom artigo que explica melhor o que é o pyenv e como ele funciona é foi feito pelo [Real Python](https://realpython.com/intro-to-pyenv/).
 
+## Configurando o Git
 
+o [**`Git`**](https://git-scm.com/) é uma ferramenta de controle de versão que permite que você controle as versões dos seus arquivos. O `Git` é uma ferramenta muito importante para quem trabalha com desenvolvimento de software, uma vez que ele permite que você mantenha um histórico de todas as alterações que você fez em um arquivo.
+
+Todo linux já vem com o `Git` instalado, agora o que precisamos fazer é configura-lo. Para isso, abra o terminal e digite:
+
+```bash title="Configurando o Git"
+git config --global user.name "Seu Nome" # (1)!
+git config --global user.email "seu@email.com" # (2)!
+git config --global init.defaultBranch main # (3)!
+```
+
+1. :man_raising_hand: Entendendo o comando:
+    - `git`: é o comando do `Git`;
+    - `config`: é o comando que permite que você configure o `Git`;
+    - `--global`: é a opção que faz com que a configuração seja global, ou seja, ela vale para todos os repositórios que você criar;
+    - `user.name`: é a chave que define o nome do usuário;
+    - `"Seu Nome"`: é o valor que você vai atribuir a chave `user.name`
+2. :man_raising_hand: Entendendo o comando:
+    - `user.email`: é a chave que define o email do usuário;
+    - `"seu@email.com"`: é o valor que você vai atribuir a chave `user.email
+3. :man_raising_hand: Entendendo o comando:
+    - `init.defaultBranch`: é a chave que define a branch padrão do `Git`;
+    - `main`: é o valor que você vai atribuir a chave `init.defaultBranch`. Isso é importante porque o `Git` mudou a branch padrão de `master` para `main`.
+
+### Fazendo com que seu `Git` converse com um repositorio do GitHub.
+
+Ter o seu código apenas em sua máquina é bom, mas é melhor ainda quando você pode compartilhar seu código com outras pessoas. Para isso vamos precisar de um repositorio remoto. E o GitHub é um dos lugares mais populares para se fazer isso.
+
+!!! tip "Caso você não tenha uma conta no git hub"
+    Vamos precisar que você tenha uma conta no GitHub. Se você não tem, crie uma conta no [GitHub](https://github.com/) e crie uma conta.
+
+Para fazer com que o seu `Git` converse com o GitHub, você vai precisar de um token de acesso. Para isso, siga os passos abaixo:
+
+1. Acesse o [GitHub](https://github.com/) e faça login na sua conta;
+2. Clique na sua foto de perfil no canto superior direito e vá em `Settings`;
+3. No menu lateral, clique em `Developer settings`;
+4. No menu lateral, clique em `Personal access tokens` e em seguida clique em `Tokens(Classic)`;
+5. Clique em `Generate new token`;
+6. Dê um nome para o seu token e selecione as permissões que você deseja dar para esse token. No nosso caso, vamos selecionar as permissões `repo` e `workflow`;
+7. Clique em `Generate token` e copie o token gerado; 
+8. Agora vamos configurar o `Git` para usar esse token. Para isso, abra o terminal e digite:
+    ```bash title="Configurando o Git para usar o token"
+    git config --global credential.helper cache # (1)!
+    ```
+    1. :man_raising_hand: Entendendo o comando:
+        - `credential.helper`: é a chave que define o helper de credenciais do `Git`;
+        - `cache`: é o valor que você vai atribuir a chave `credential.helper`. Esse helper vai armazenar as credenciais em cache;
+
+!!! danger ":warning: Atenção :warning:"
+    Ess token gerado nesses passos é o que permite que uma maquina se conect em seu github, portanto **NUNCA**, **NUNCA** compartilhe esse token com qualquer pessoa. Caso por um descuido você compartilhe esse token, vá até o github e delete esse token.
+
+#### Testando a conexão
+
+Vamos fazer um simples teste para ver se a conexão com o GitHub está funcionando. Para isso, vamos clonar um repositório de teste. Para isso, abra o terminal e digite:
+
+```bash title="Clonando um repositório de teste"
+git clone https://github.com/code-umbu/PotyStack.git # (1)!
+```
+1. :man_raising_hand: Entendendo o comando:
+    - `git`: é o comando do `Git`;
+    - `clone`: é o comando que permite que você clone um repositório;
+    - `https://github.com/code-umbu/PotyStack.git`: é o endereço do repositório que você quer clonar.
+
+Se tudo estiver funcionando corretamente, você deve ver uma mensagem parecida com essa:
+
+```bash
+Cloning into 'PotyStack'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+```
+
+Provavelmente você vai ver uma pasta chamada `PotyStack` na pasta onde você está no terminal. Isso significa que o `Git` está funcionando corretamente e você está pronto para começar a trabalhar com o GitHub.
